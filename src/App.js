@@ -100,8 +100,15 @@ const App = () => {
       </div>
 
       {loading ? (
-        <div style={{ textAlign: "center", fontSize: "20px" }}>
-          <div className="spinner" style={{ border: "4px solid rgba(0, 0, 0, 0.1)", borderLeftColor: "black", borderRadius: "50%", width: "40px", height: "40px", animation: "spin 1s linear infinite" }}></div>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "200px" }}>
+          <div style={{
+            border: "4px solid rgba(0, 0, 0, 0.1)",
+            borderLeftColor: "black",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px",
+            animation: "spin 1s linear infinite"
+          }}></div>
         </div>
       ) : error ? (
         <div style={{ color: "red", textAlign: "center", fontSize: "18px" }}>{error}</div>
@@ -136,7 +143,7 @@ const Cart = () => {
   const totalPrice = Object.values(cart).reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
-    <div style={{ marginTop: "20px", display: "flex", gap: "20px", overflowX: "auto" }}>
+    <div style={{ marginTop: "20px", display: "flex", gap: "20px", overflowX: "auto", whiteSpace: "nowrap" }}>
       <h2>Cart</h2>
       {Object.values(cart).length === 0 ? (
         <p>Cart is empty</p>
